@@ -55,4 +55,14 @@
         android:layout_marginBottom="42dp"
         android:text="Button" />
 
+    <EditText
+        android:id="@+id/answerBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/getWeatherForeCast_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
 </RelativeLayout>
