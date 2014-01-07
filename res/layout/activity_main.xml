@@ -12,57 +12,158 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/latEditText"
-        android:layout_alignLeft="@+id/latEditText"
-        android:layout_marginBottom="46dp"
-        android:text="TextView" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/latTextViewString" />
 
     <EditText
         android:id="@+id/latEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/longEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/latEditText"
+        android:layout_toRightOf="@+id/textView2"
         android:ems="10" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/latEditText"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="45dp"
-        android:text="TextView" />
+        android:layout_alignBottom="@+id/longEditText"
+        android:layout_alignRight="@+id/textView1"
+        android:text="@string/lngTextViewString" />
 
-    <EditText
-        android:id="@+id/longEditText"
+    <TextView
+        android:id="@+id/tempTextViewValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cityTextView"
+        android:layout_below="@+id/tempTextView"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/windTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_centerVertical="true"
-        android:ems="10" >
+        android:layout_alignLeft="@+id/cityTextView"
+        android:layout_below="@+id/tempTextViewValue"
+        android:text="@string/windTextViewString" />
 
-        <requestFocus />
-    </EditText>
+    <TextView
+        android:id="@+id/windTextViewValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cityTextView"
+        android:layout_below="@+id/windTextView"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/cityTextViewValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cityTextView"
+        android:layout_below="@+id/cityTextView"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tempTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cityTextViewValue"
+        android:layout_below="@+id/cityTextViewValue"
+        android:text="@string/tempTextViewString" />
+
+    <TextView
+        android:id="@+id/cloudsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/windTextViewValue"
+        android:layout_below="@+id/windTextViewValue"
+        android:text="@string/cloudsTextViewString" />
+
+    <TextView
+        android:id="@+id/cloudsTextViewValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cloudsTextView"
+        android:layout_below="@+id/cloudsTextView"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tempMinTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cloudsTextViewValue"
+        android:layout_below="@+id/cloudsTextViewValue"
+        android:text="@string/tempMinTextViewString" />
+
+    <TextView
+        android:id="@+id/tempMinTextViewValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tempMinTextView"
+        android:layout_below="@+id/tempMinTextView"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tempMaxTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tempMinTextViewValue"
+        android:layout_below="@+id/tempMinTextViewValue"
+        android:text="@string/tempMaxTextViewString" />
+
+    <TextView
+        android:id="@+id/tempMaxTextViewValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tempMaxTextView"
+        android:layout_below="@+id/tempMaxTextView"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/cityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/getWeatherForeCast_btn"
+        android:text="@string/cityTextViewString" />
 
     <Button
         android:id="@+id/getWeatherForeCast_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/longEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp"
+        android:layout_marginTop="23dp"
         android:text="Button" />
 
-    <EditText
-        android:id="@+id/answerBox"
+    <TextView
+        android:id="@+id/rainTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/getWeatherForeCast_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
+        android:layout_alignLeft="@+id/tempMaxTextViewValue"
+        android:layout_below="@+id/tempMaxTextViewValue"
+        android:text="@string/rainTextViewString" />
+
+    <TextView
+        android:id="@+id/rainTextViewValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rainTextView"
+        android:layout_below="@+id/rainTextView"
+        android:text="" />
 
 </RelativeLayout>

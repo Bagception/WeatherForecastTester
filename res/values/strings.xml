@@ -5,5 +5,14 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="latitudeString"/>
+    <string name="latTextViewString">Latitude:</string>
+    <string name="lngTextViewString">Longitude:</string>
+    <string name="cityTextViewString">City:</string>
+    <string name="tempTextViewString">Temperatur:</string>
+    <string name="windTextViewString">Windstärke:</string>
+    <string name="cloudsTextViewString">Bewölkung:</string>
+    <string name="tempMinTextViewString">Min. Temperatur:</string>
+    <string name="tempMaxTextViewString">Max. Temperatur:</string>
+    <string name="rainTextViewString">Regenwahrscheinlichkeit:</string>
 
 </resources>
