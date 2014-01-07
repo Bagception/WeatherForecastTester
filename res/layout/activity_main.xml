@@ -148,7 +148,7 @@
         android:layout_below="@+id/longEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
-        android:text="Button" />
+        android:text="@string/buttonString" />
 
     <TextView
         android:id="@+id/rainTextView"

@@ -14,5 +14,6 @@
     <string name="tempMinTextViewString">Min. Temperatur:</string>
     <string name="tempMaxTextViewString">Max. Temperatur:</string>
     <string name="rainTextViewString">Regenwahrscheinlichkeit:</string>
+    <string name="buttonString">Forecast</string>
 
 </resources>

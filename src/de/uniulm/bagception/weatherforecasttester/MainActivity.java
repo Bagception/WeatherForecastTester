@@ -74,8 +74,8 @@ public class MainActivity extends Activity implements Receiver{
 		this.mRainTextView = (TextView) findViewById(R.id.rainTextView);
 		this.mRainTextViewValue = (TextView) findViewById(R.id.rainTextViewValue);
 		this.mGetWeatherForecastButton = (Button) findViewById(R.id.getWeatherForeCast_btn);
-		this.mLatEditText.setText("48.404192");
-		this.mLongEditText.setText("9.980428");
+		this.mLatEditText.setText("49.451276");
+		this.mLongEditText.setText("11.077623");
 		
 		this.mTempMinTextView.setVisibility(TextView.INVISIBLE);
 		this.mTempMinTextViewValue.setVisibility(TextView.INVISIBLE);
@@ -88,17 +88,16 @@ public class MainActivity extends Activity implements Receiver{
 			@Override
 			public void onClick(View v) {
 				// TODO: Get text from editViews
-//				double lat = Double.parseDouble(mLatEditText.getText().toString());
-//				double lng = Double.parseDouble(mLongEditText.getText().toString());
+				double lat = Double.parseDouble(mLatEditText.getText().toString());
+				double lng = Double.parseDouble(mLongEditText.getText().toString());
+				Log.d("main", "LAT:"+  lat + " LONG:" + lng);
 				
 				
 				String serviceString = ServiceNames.WEATHER_FORECAST_SERVICE;
 				
 				Intent i = new Intent(serviceString);
-//				i.putExtra("lat", lat);
-//				i.putExtra("lng", lng);
-				i.putExtra("lat", 48.404192);
-				i.putExtra("lng", 9.980428);
+				i.putExtra("lat", lat);
+				i.putExtra("lng", lng);
 				i.putExtra("receiverTag", mResultreceiver);
 				startService(i);
 			}
@@ -128,38 +127,37 @@ public class MainActivity extends Activity implements Receiver{
 	}
 	
 	public void setWeatherData(JSONObject result) throws JSONException{
-		Log.d("RESUUUUUUHUHULT", result.toString());
 		mCityTextViewValue.setText(result.getString("city"));
 		mTempTextViewValue.setText(result.getString("temp") + " °C");
 		mWindTextViewValue.setText(result.getString("wind") + " km/h");
 		mCloudsTextViewValue.setText(result.getString("clouds") + " %");
+		mTempMinTextViewValue.setText(result.getString("tempMin") + " °C");
+		mTempMaxTextViewValue.setText(result.getString("tempMax") + " °C");
+		mRainTextViewValue.setText(result.getString("rain") + " %");
 		
-		String tempMin = result.getString("tempMin") + " °C";
-		String tempMax = result.getString("tempMax") + " °C";
-		String rain    = "" + 100*Double.parseDouble(result.getString("rain")) + " %";
-		if(tempMin!=null){
-			mTempMinTextView.setVisibility(TextView.VISIBLE);
-			mTempMinTextViewValue.setVisibility(TextView.VISIBLE);
-			mTempMinTextViewValue.setText(tempMin);
-		}else{
-			mTempMinTextView.setVisibility(TextView.INVISIBLE);
-			mTempMinTextViewValue.setVisibility(TextView.INVISIBLE);
-		}
-		if(tempMax!=null){
-			mTempMaxTextView.setVisibility(TextView.VISIBLE);
-			mTempMaxTextViewValue.setVisibility(TextView.VISIBLE);
-			mTempMaxTextViewValue.setText(tempMax);
-		}else{
-			mTempMaxTextView.setVisibility(TextView.INVISIBLE);
-			mTempMaxTextViewValue.setVisibility(TextView.INVISIBLE);
-		}
-		if(rain!=null){
-			mRainTextView.setVisibility(TextView.VISIBLE);
-			mRainTextViewValue.setVisibility(TextView.VISIBLE);
-			mRainTextViewValue.setText(rain);
-		}else{
-			mRainTextView.setVisibility(TextView.INVISIBLE);
-			mRainTextViewValue.setVisibility(TextView.INVISIBLE);
-		}
+//		if(!result.getString("tempMin").equals("")){
+//			mTempMinTextView.setVisibility(TextView.VISIBLE);
+//			mTempMinTextViewValue.setVisibility(TextView.VISIBLE);
+//			mTempMinTextViewValue.setText(result.getString("tempMin" + " °C"));
+//		}else{
+//			mTempMinTextView.setVisibility(TextView.INVISIBLE);
+//			mTempMinTextViewValue.setVisibility(TextView.INVISIBLE);
+//		}
+//		if(!result.getString("tempMax").equals("")){
+//			mTempMaxTextView.setVisibility(TextView.VISIBLE);
+//			mTempMaxTextViewValue.setVisibility(TextView.VISIBLE);
+//			mTempMaxTextViewValue.setText(result.getString("tempMax") + " °C");
+//		}else{
+//			mTempMaxTextView.setVisibility(TextView.INVISIBLE);
+//			mTempMaxTextViewValue.setVisibility(TextView.INVISIBLE);
+//		}
+//		if(!result.getString("rain").equals("")){
+//			mRainTextView.setVisibility(TextView.VISIBLE);
+//			mRainTextViewValue.setVisibility(TextView.VISIBLE);
+//			mRainTextViewValue.setText(result.getString("rain") + " %");
+//		}else{
+//			mRainTextView.setVisibility(TextView.INVISIBLE);
+//			mRainTextViewValue.setVisibility(TextView.INVISIBLE);
+//		}
 	}
 }
