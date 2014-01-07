@@ -4,8 +4,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import de.uniulm.bagception.broadcastconstants.BagceptionBroadcastContants;
 import de.uniulm.bagception.intentservicecommunication.MyResultReceiver;
 import de.uniulm.bagception.intentservicecommunication.MyResultReceiver.Receiver;
+import de.uniulm.bagception.services.ServiceNames;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -46,15 +48,15 @@ public class MainActivity extends Activity implements Receiver{
 			@Override
 			public void onClick(View v) {
 				// TODO: Get text from editViews
-//				double lat1 = Double.parseDouble(mLatEditText.getText().toString());
-//				double long1 = Double.parseDouble(mLongEditText.getText().toString());
+				double lat1 = Double.parseDouble(mLatEditText.getText().toString());
+				double long1 = Double.parseDouble(mLongEditText.getText().toString());
 				
-				String serviceString = "de.uniulm.bagception.weatherforecast.WeatherForecastService";
+				String serviceString = ServiceNames.WEATHER_FORECAST_SERVICE;
 				
 				Intent i = new Intent(serviceString);
 				i.putExtra("origin","A" );
-//				i.putExtra("lat1", lat1);
-//				i.putExtra("long1", long1);
+				i.putExtra("lat1", lat1);
+				i.putExtra("long1", long1);
 				i.putExtra("receiverTag", mResultreceiver);
 				startService(i);
 			}
