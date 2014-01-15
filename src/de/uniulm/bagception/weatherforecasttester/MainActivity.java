@@ -8,6 +8,7 @@ import de.uniulm.bagception.broadcastconstants.BagceptionBroadcastContants;
 import de.uniulm.bagception.intentservicecommunication.MyResultReceiver;
 import de.uniulm.bagception.intentservicecommunication.MyResultReceiver.Receiver;
 import de.uniulm.bagception.services.ServiceNames;
+import de.uniulm.bagception.services.attributes.WeatherForecast;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.Handler;
@@ -90,14 +91,14 @@ public class MainActivity extends Activity implements Receiver{
 				// TODO: Get text from editViews
 				double lat = Double.parseDouble(mLatEditText.getText().toString());
 				double lng = Double.parseDouble(mLongEditText.getText().toString());
-				Log.d("main", "LAT:"+  lat + " LONG:" + lng);
+//				Log.d("main", "LAT:"+  lat + " LONG:" + lng);
 				
 				
 				String serviceString = ServiceNames.WEATHER_FORECAST_SERVICE;
 				
 				Intent i = new Intent(serviceString);
-				i.putExtra("lat", lat);
-				i.putExtra("lng", lng);
+				i.putExtra(WeatherForecast.LATITUDE, lat);
+				i.putExtra(WeatherForecast.LONGITUDE, lng);
 				i.putExtra("receiverTag", mResultreceiver);
 				startService(i);
 			}
@@ -127,13 +128,13 @@ public class MainActivity extends Activity implements Receiver{
 	}
 	
 	public void setWeatherData(JSONObject result) throws JSONException{
-		mCityTextViewValue.setText(result.getString("city"));
-		mTempTextViewValue.setText(result.getString("temp") + " °C");
-		mWindTextViewValue.setText(result.getString("wind") + " km/h");
-		mCloudsTextViewValue.setText(result.getString("clouds") + " %");
-		mTempMinTextViewValue.setText(result.getString("tempMin") + " °C");
-		mTempMaxTextViewValue.setText(result.getString("tempMax") + " °C");
-		mRainTextViewValue.setText(result.getString("rain") + " %");
+		mCityTextViewValue.setText(result.getString(WeatherForecast.CITY));
+		mTempTextViewValue.setText(result.getString(WeatherForecast.TEMP) + " °C");
+		mWindTextViewValue.setText(result.getString(WeatherForecast.WIND) + " km/h");
+		mCloudsTextViewValue.setText(result.getString(WeatherForecast.CLOUDS) + " %");
+		mTempMinTextViewValue.setText(result.getString(WeatherForecast.TEMP_MIN) + " °C");
+		mTempMaxTextViewValue.setText(result.getString(WeatherForecast.TEMP_MIN) + " °C");
+		mRainTextViewValue.setText(result.getString(WeatherForecast.RAIN) + " %");
 		
 //		if(!result.getString("tempMin").equals("")){
 //			mTempMinTextView.setVisibility(TextView.VISIBLE);
